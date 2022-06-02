@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.EmployeeMapper">
+
+    <insert id="insertEmpList" parameterType="java.util.ArrayList">
+        insert into employee (id,name,bp,pp,allowance,ins,cpf) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.name},#{item.bp},#{item.pp},#{item.allowance},#{item.ins},#{item.cpf})
+        </foreach>
+    </insert>
+
+</mapper>
